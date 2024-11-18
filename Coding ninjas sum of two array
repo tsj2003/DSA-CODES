@@ -1,0 +1,47 @@
+#include <algorithm>
+void sumOfTwoArrays(int *input1, int size1, int *input2, int size2, int *output)
+{
+      int indx1 = size1 - 1;
+      int indx2 = size2 - 1;;
+      int  carry = 0;
+     int indx3 = std::max(size1, size2);
+      int sum ;
+
+      while(indx1>=0&& indx2>=0){
+          sum = input1[indx1] + input2[indx2] +carry;
+        int tens = sum/10;
+        int unit = sum%10; 
+        output[indx3]= unit;
+        carry = tens;
+        indx1--;
+        indx2--;
+        indx3--;
+
+      }
+       while(indx1>=0){
+          sum = input1[indx1] +carry;
+        int tens = sum/10;
+        int unit = sum%10; 
+        output[indx3]= unit;
+        carry = tens;
+        indx1--;
+       
+        indx3--;
+
+      }
+       while(indx2>=0){
+          sum = input2[indx2] +carry;
+        int tens = sum/10;
+        int unit = sum%10; 
+        output[indx3]= unit;
+        carry = tens;
+       
+        indx2--;
+        indx3--;
+
+      }
+      if (carry > 0) {
+        output[indx3] = carry;
+    }
+
+}
