@@ -1,0 +1,34 @@
+/****************************************************************
+ 
+    Following is the class structure of the Node class:
+
+        class Node
+        {
+        public:
+	        int data;
+	        Node *next;
+	        Node(int data)
+	        {
+		        this->data = data;
+		        this->next = NULL;
+	        }
+        };
+
+*****************************************************************/
+
+void printIthNode(Node *head, int i) {
+    int idx = 0;
+    Node* current = head; // Start from the head of the linked list
+
+    // Traverse the linked list until the i-th node or end of the list
+    while (current != nullptr && idx < i) {
+        idx++;
+        current = current->next;
+    }
+
+    // Check if the i-th node exists and print its data
+    if (current != nullptr) {
+        cout << current->data << endl;
+    } 
+    
+}
