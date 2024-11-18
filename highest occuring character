@@ -1,0 +1,20 @@
+char highestOccurringChar(char input[]) {
+    // Initialize a count array to track frequency of each character
+    int count[256] = {0}; // 256 to include all ASCII characters
+    char result = '\0';   // To store the result
+    int maxFrequency = 0; // To track the maximum frequency
+
+    // Traverse the input string
+    for (int i = 0; input[i] != '\0'; i++) {
+        count[input[i]]++; // Increment the frequency of the character
+
+        // Check if the current character should update the result
+        if (count[input[i]] > maxFrequency) {
+            maxFrequency = count[input[i]];
+            result = input[i];
+        }
+        // If frequencies are equal, do nothing, as result is already the first appearing max one
+    }
+
+    return result;
+}
