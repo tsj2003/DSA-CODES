@@ -1,0 +1,35 @@
+/****************************************************************
+ 
+    Following is the class structure of the Node class:
+
+    class Node
+    {
+    	public:
+        int data;
+        Node *next;
+        Node(int data)
+        {
+	        this->data = data;
+	        this->next = NULL;
+        }
+    };
+
+*****************************************************************/
+
+int findNode(Node *head, int n){
+    if (head == NULL){
+        return -1;
+
+    }
+    Node* temp = head;
+    int cnt = 0;
+    while(temp!=NULL && temp->data!=n)
+        {
+            temp=temp->next;
+            cnt++;
+        }
+        if(temp!=NULL)
+            return cnt;
+        else
+            return -1;
+}
