@@ -1,0 +1,32 @@
+class Solution {
+public:
+
+    int findsum(int num){
+        int sum =0;
+        while(num){
+            sum += num%10;
+            num = num/10;
+        }
+        return sum;
+    }
+    int countLargestGroup(int n) {
+   unordered_map<int,int> mp;
+       int maxsize = 0;
+       int cnt = 0;
+       for(int num  = 1;num<=n;num++){
+
+        int digitsum = findsum(num);
+        mp[digitsum]++;
+        if(mp[digitsum] == maxsize){
+            cnt++;
+        }
+        else if(mp[digitsum] > maxsize){
+            maxsize = mp[digitsum];
+            cnt = 1;
+        }
+
+       }
+       return cnt;
+        
+    }
+};
